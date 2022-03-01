@@ -18,7 +18,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-    if(testInput = "") {
+    if(testInput == "") {
         return "Empty";
     } else {
         if(isNaN(testInput) == true) {
@@ -32,10 +32,14 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    if(validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || 
    validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
-       alert("All fields are required. Please enter data in all fields.");
+       try {
+           alert("All fields are required. Please enter data in all fields.");
+       } catch(error){}
    } else if(validateInput(pilot) == "Is a Number" || validateInput(copilot) == "Is a Number" || 
    validateInput(fuelLevel) == "Not a Number" || validateInput(cargoLevel) == "Not a Number") {
-       alert("Invalid input. Please enter in correct data.");
+       try{
+           alert("Invalid input. Please enter in correct data.");
+       } catch(error){}
    } else {
        const launchStatus = document.getElementById("launchStatus");
        const faultyItems = document.getElementById("faultyItems");
@@ -52,14 +56,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         faultyItems.style.visibility = "visible";
         fuel.innerHTML = `Not enough fuel for the journey.`;
        }
-       if(cargo > 10000) {
+       if(cargoLevel > 10000) {
         launchStatus.innerHTML = `Shuttle not ready for launch`;
         launchStatus.style.color = "red";
         faultyItems.style.visibility = "visible";
         cargo.innerHTML = `Too much mass for take off.`;
        }
-       if(launchStatus.innerHTML !== `Shuttle not ready for launch`) {
-        launchStatus.innerHTML = `Shuttle is ready for launch`;
+       if(fuelLevel && cargoLevel <= 1000) {
         launchStatus.innerHTML = `Awaiting Information Before Launch`;
         launchStatus.style.color = "";
         faultyItems.style.visibility = "hidden";
