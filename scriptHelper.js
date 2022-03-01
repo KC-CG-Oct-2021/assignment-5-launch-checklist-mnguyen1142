@@ -62,7 +62,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStatus.innerHTML = `Shuttle is ready for launch`;
         launchStatus.innerHTML = `Awaiting Information Before Launch`;
         launchStatus.style.color = "";
-        faultyItems.style.visibility = "";
+        faultyItems.style.visibility = "hidden";
         fuel.innerHTML = `Fuel level high enough for launch.`;
         cargo.innerHTML = `Cargo mass low enough for launch.`;
        }
