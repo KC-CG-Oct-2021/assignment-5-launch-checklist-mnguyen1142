@@ -18,15 +18,15 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   if(isNaN(testInput) == true) {
-       if(testInput == "") {
-           return "Empty";
-       } else {
-           return "Not a Number";
-       }
-   } else {
-       return "Is a Number";
-   }
+    if(testInput = "") {
+        return "Empty";
+    } else {
+        if(isNaN(testInput) == true) {
+            return "Is a Number";
+        } else {
+            return "Not a Number";
+        }
+    }
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -37,12 +37,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    validateInput(fuelLevel) == "Not a Number" || validateInput(cargoLevel) == "Not a Number") {
        window.alert("Invalid input. Please enter in correct data.");
    } else {
-       const launchStatus = document.getElementByID("launchStatus");
-       const faultyItems = document.getElementByID("faultyItems");
-       const pilotStatus = document.getElementByID("pilotStatus");
-       const copilotStatus = document.getElementByID("copilotStatus");
-       const fuel = document.getElementByID("fuelStatus");
-       const cargo = document.getElementByID("cargoStatus");
+       const launchStatus = document.getElementById("launchStatus");
+       const faultyItems = document.getElementById("faultyItems");
+       const pilotStatus = document.getElementById("pilotStatus");
+       const copilotStatus = document.getElementById("copilotStatus");
+       const fuel = document.getElementById("fuelStatus");
+       const cargo = document.getElementById("cargoStatus");
 
        pilotStatus.innerHTML = `Pilot ${pilot} Ready`;
        copilotStatus.innerHTML = `Co-pilot ${copilot} Ready`;
@@ -62,6 +62,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStatus.innerHTML = `Shuttle is ready for launch`;
        }
    }
+   launchStatus.innerHTML = `Awaiting Information Before Launch`;
+   launchStatus.style.color = "";
+   faultyItems.style.visibility = "";
+   fuel.innerHTML = `Fuel level high enough for launch.`;
+   cargo.innerHTML = `Cargo mass low enough for launch.`;
+
 }
 
 async function myFetch() {
