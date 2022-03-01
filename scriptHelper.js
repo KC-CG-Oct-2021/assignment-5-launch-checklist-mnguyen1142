@@ -30,7 +30,8 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   if(validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || 
+    console.log('form function');
+    if(validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || 
    validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
        try {
            alert("All fields are required. Please enter data in all fields.");
@@ -62,12 +63,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         faultyItems.style.visibility = "visible";
         cargo.innerHTML = `Too much mass for take off.`;
        }
-       if(fuelLevel && cargoLevel <= 1000) {
+       if(fuelLevel >= 10000&& cargoLevel <= 10000) {
         launchStatus.innerHTML = `Awaiting Information Before Launch`;
         launchStatus.style.color = "";
         faultyItems.style.visibility = "hidden";
-        fuel.innerHTML = `Fuel level high enough for launch.`;
-        cargo.innerHTML = `Cargo mass low enough for launch.`;
+        fuel.innerHTML = `Fuel level high enough for launch`;
+        cargo.innerHTML = `Cargo mass low enough for launch`;
        }
    }
 }

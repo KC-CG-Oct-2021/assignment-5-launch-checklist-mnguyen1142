@@ -22,6 +22,8 @@ window.addEventListener("load", function() {
    const fuel = input[2].value;
    const cargo = input[3].value;
    button.addEventListener("click", function(event) {
-       formSubmission(document, list, pilot, copilot, fuel, cargo);
+        event.preventDefault();
+        formSubmission(document, list, pilot, copilot, fuel, cargo);
+       
    })
 });
