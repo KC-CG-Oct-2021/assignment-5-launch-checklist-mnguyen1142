@@ -29,8 +29,8 @@ function validateInput(testInput) {
     }
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    console.log('form function');
+function formSubmission(document, pilot, copilot, fuelLevel, cargoLevel) {
+    console.log(pilot + copilot + fuelLevel + cargoLevel);
     if(validateInput(pilot) == "Empty" || validateInput(copilot) == "Empty" || 
    validateInput(fuelLevel) == "Empty" || validateInput(cargoLevel) == "Empty") {
        try {
