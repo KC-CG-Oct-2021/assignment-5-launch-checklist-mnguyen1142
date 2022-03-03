@@ -17,18 +17,13 @@ window.addEventListener("load", function() {
 
    const button = document.querySelector("form");
    const input = document.getElementsByTagName("input");
-   
-   /*const pilot = input[0].value;
-   const copilot = input[1].value;
-   const fuel = input[2].value;
-   const cargo = input[3].value;*/
    button.addEventListener("submit", function(event) {
         event.preventDefault();
         let pilot = document.querySelector("input[name=pilotName]").value;
         let copilot = document.querySelector("input[name=copilotName]").value;
         let fuel = document.querySelector("input[name=fuelLevel]").value;
         let cargo = document.querySelector("input[name=cargoMass]").value;
-        formSubmission(document, pilot, copilot, fuel, cargo);
+        formSubmission(document, null, pilot, copilot, fuel, cargo);
        
    })
 });
